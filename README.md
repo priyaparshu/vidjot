@@ -23,6 +23,12 @@ This application has following dependencies:
     Passport with local strategy: Passport is a authentication module for node. We are going to store our credentials in                                       locally in mongodb. We will use bcrypt to encrypt the password
  
     bcrypt: It is used to encrypt the password before storing it to mongodb.
+    serializeUser: is the method that is called on the login request(during the authentication) and if login is successful       then it decides what user information should get stored in the session and a cookie is sent to the browser for the same     to maintain the session.
+    deserializeUser: is the method that is called on all subsequent request and is called by the passport.session               middleware. It enables us to load additional user information on every request. This user object is attached to the         request as req.user making it accessible in our request handling.
+
+
+
+
  
  
  When a user adds an idea to the ideas form, we send a Post request to '/ideas', we validate the form input and then save it to the db.      
